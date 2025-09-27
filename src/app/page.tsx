@@ -27,15 +27,14 @@ export default function Home() {
   return (
     <main className="p-10">
       <h1 className="text-4xl mb-4 font-bold">Firebase Cloud Messaging Demo</h1>
-
-      {notificationPermissionStatus === "granted" ? (
-        <p>Permission to receive notifications has been granted.</p>
-      ) : notificationPermissionStatus !== null ? (
-        <p>
-          You have not granted permission to receive notifications. Please
-          enable notifications in your browser settings.
-        </p>
-      ) : null}
+      <div className="flex gap-2">
+        Permission Status:
+        {notificationPermissionStatus === "granted" ? (
+          <p>Granted</p>
+        ) : notificationPermissionStatus !== null ? (
+          <p>Not Granted</p>
+        ) : null}
+      </div>
 
       <Button
         disabled={!token}
